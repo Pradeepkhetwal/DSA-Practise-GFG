@@ -46,22 +46,23 @@ class Solution
            return root;
        }
        
-      Node * left = lca(root->left,n1,n2);
-      Node * right = lca(root->right,n1,n2);
        
-       if(left == NULL){
-           return right;
-       }
+       Node * left = lca(root->left , n1,n2);
+       Node * right = lca(root->right,n1,n2);
        
-       if(right == NULL){
+       if(left != NULL && right == NULL){
            return left;
        }
        
+       if(right != NULL && left == NULL){
+           return right;
+       }
        
-       //this will be the answer.
-       else if(left != NULL && right != NULL){
+       if(left != NULL && right != NULL){
            return root;
        }
+       
+       
     }
 };
 
